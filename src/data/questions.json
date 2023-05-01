@@ -1,0 +1,34 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Quelle est la capitale de la France ?",
+      "choices": ["Paris", "Lyon", "Marseille", "Bordeaux"],
+      "correctAnswer": 0
+    },
+    {
+      "id": 2,
+      "question": "Quel est le langage de programmation utilisé pour le développement côté client dans les navigateurs Web ?",
+      "choices": ["Java", "Python", "JavaScript", "C#"],
+      "correctAnswer": 2
+    },
+    {
+      "id": 3,
+      "question": "Combien de planètes composent notre système solaire ?",
+      "choices": ["7", "8", "9", "10"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 4,
+      "question": "Quel est le plus grand océan du monde ?",
+      "choices": ["Océan Atlantique", "Océan Pacifique", "Océan Indien", "Océan Arctique"],
+      "correctAnswer": 1
+    },
+    {
+      "id": 5,
+      "question": "Quel est le prénom de l'acteur principal dans la série 'Breaking Bad' ?",
+      "choices": ["Bryan", "Aaron", "Dean", "Jesse"],
+      "correctAnswer": 0
+    }
+  ]
+}
