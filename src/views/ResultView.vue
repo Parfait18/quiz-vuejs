@@ -1,10 +1,20 @@
 <script setup>
 import Result from '@/components/Result.vue'
 import { useResultStore } from '@/stores/resultStore'
+import { computed } from 'vue'
 
 const resultStore = useResultStore()
 
 let scores = resultStore.getScores
+
+let { points } = computed(() => {
+  let good,
+    bad = 0
+  scores.map((e) => {
+    e.correctAnswer == e.userAnswer ? good++ : bad++
+  })
+  return { good, bad }
+})
 </script>
 <template>
   <div class="grid place-items-center w-full p-2 bg-gray-50 h-screen">
@@ -27,7 +37,7 @@ let scores = resultStore.getScores
       <h2 class="text-blue-800 rounded-md bg-gray-50 text-center font-medium text-2xl p-4 mt-2">
         Résulat de votre quiz
       </h2>
-
+      {{ scores }}
       <Result v-for="(item, index) in scores" :key="index" :questionItem="item" class="mt-2" />
     </div>
   </div>
