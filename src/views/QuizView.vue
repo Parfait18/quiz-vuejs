@@ -19,7 +19,7 @@ import Quiz from '@/components/Quiz.vue'
         </div>
       </div>
       <p class="italic text-blue-800 text-sm p-2">
-        ** Veuillez choisir la réponse de votre choix **
+        ** Veuillez choisir une réponse de votre choix avant de continuer**
       </p>
       <hr class="mt-2" />
       <Quiz class="mt-2" />

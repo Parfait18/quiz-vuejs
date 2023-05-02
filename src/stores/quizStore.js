@@ -5,7 +5,7 @@ export const useQuizStore = defineStore('quiz', {
   state: () => ({
     questions: data.questions,
     currentIndex: 0,
-    endStatus: false
+    endStatus: "FALSE" 
   }),
   persist: true,
   getters: {
@@ -18,7 +18,7 @@ export const useQuizStore = defineStore('quiz', {
       if (this.currentIndex != this.getQuestions.length - 1) {
         this.currentIndex += 1
       } else {
-        this.endStatus = true
+        this.endStatus = "TRUE"
       }
     },
     resetQuiz() {

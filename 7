@@ -7,7 +7,7 @@ import { ref,watch} from 'vue'
 const quizStore = useQuizStore()
 const questionStore = useQuestionStore()
 const resultStore = useResultStore()
-let choice = ref(null); 
+const choice = ref(null); 
 
 defineProps({
   questionItem: {
@@ -18,17 +18,12 @@ defineProps({
 
 function nextStep() {
   questionStore.clearAnswer()
-  resultStore.updateScores(choice.value)
+  resultStore.saveScore()
   quizStore.updateStep()
-choice = ref(null)
 }
 
 watch(choice,(newValue,oldValue)=>{
 questionStore.updateAnswer(newValue)
-})
-
-watch(quizStore.getEndStatus,(newValue,oldValue)=>{
-	console.log(newValue);
 })
 </script>
 
@@ -41,7 +36,7 @@ watch(quizStore.getEndStatus,(newValue,oldValue)=>{
 		<div class="pl-2 flex items-center mb-4" :key="index" v-for="(item, index) in questionItem.choices">
 			<input
 			:key="index"
-			:id="index"
+			id="country-option-1"
 			type="radio"
 			name="choice"
 			:value="index"
@@ -50,10 +45,11 @@ watch(quizStore.getEndStatus,(newValue,oldValue)=>{
 			aria-labelledby="country-option-1"
 			aria-describedby="country-option-1"
 			/>
-			<label :for="index"  class="text-md font-medium text-gray-700 ml-2 block">
+			<label for="choice"  class="text-md font-medium text-gray-700 ml-2 block">
 				{{ item }}
 			</label>
 		</div>
+question
 		<button
 			:disabled="choice==null"
 			@click="nextStep"
