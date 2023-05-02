@@ -7,14 +7,11 @@ const resultStore = useResultStore()
 
 let scores = resultStore.getScores
 
-let { points } = computed(() => {
-  let good,
-    bad = 0
-  scores.map((e) => {
-    e.correctAnswer == e.userAnswer ? good++ : bad++
-  })
-  return { good, bad }
-})
+let points = 0;
+
+let result  = scores.map((e) => {return e.correctAnswer == e.userAnswer ? 1 :0 } )
+let goodPoints  = result.reduce((acc,element) => {return acc+element},0)
+
 </script>
 <template>
   <div class="grid place-items-center w-full p-2 bg-gray-50 h-screen">
@@ -37,8 +34,13 @@ let { points } = computed(() => {
       <h2 class="text-blue-800 rounded-md bg-gray-50 text-center font-medium text-2xl p-4 mt-2">
         Résulat de votre quiz
       </h2>
-      {{ scores }}
-      <Result v-for="(item, index) in scores" :key="index" :questionItem="item" class="mt-2" />
+ <h3 class="text-blue-800 rounded-md bg-blue-100 shadow-sm text-center sm:w-full md:w-2/4 mx-auto font-bold text-xl p-4 mt-2">
+**	 Votre score est de :  {{goodPoints}} / {{scores.length}} **
+
+      </h3>
+
+      
+      <Result v-for="(item, index) in scores" :key="index" :questionItem="item" class="mt-4" />
     </div>
   </div>
 </template>
