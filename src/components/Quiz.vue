@@ -1,3 +1,5 @@
+<!-- Quiz component to display quiz while it's not finished 
+and load question step by step-->
 <script setup>
 import Question from '@/components/Question.vue'
 import { useQuizStore } from '@/stores/quizStore'

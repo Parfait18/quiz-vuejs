@@ -1,3 +1,4 @@
+<!-- component Result to show quiz result for user and he can restart -->
 <script setup>
 defineProps({
   questionItem: {

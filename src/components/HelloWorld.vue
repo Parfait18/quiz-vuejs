@@ -1,3 +1,4 @@
+<!-- component to display home text -->
 <script setup>
 defineProps({
   msg: {

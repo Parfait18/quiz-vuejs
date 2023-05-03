@@ -1,3 +1,4 @@
+<!-- Question component to display question and its choice -->
 <script setup>
 import { useQuizStore } from '@/stores/quizStore'
 import { useQuestionStore } from '@/stores/questionStore'

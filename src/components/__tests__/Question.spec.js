@@ -56,7 +56,7 @@ describe('Question', () => {
     // //mock updateStep of quizStore
     vi.spyOn(quizStore, 'updateStep')
 
-    //mount Question component
+    //mount Question component with props
     const cmp = shallowMount(Question, {
       props: {
         questionItem: {
@@ -71,7 +71,7 @@ describe('Question', () => {
 
     vi.spyOn(cmp.vm, 'nextStep')
 
-    //test if button exit on cmp
+    //test if button exist on cmp
     expect(cmp.find('button').exists()).toBe(true)
 
     //expect init value of choice is null
