@@ -5,7 +5,7 @@ export const useQuizStore = defineStore('quiz', {
   state: () => ({
     questions: data.questions,
     currentIndex: 0,
-    endStatus: "FALSE" 
+    endStatus: false
   }),
   persist: true,
   getters: {
@@ -14,16 +14,22 @@ export const useQuizStore = defineStore('quiz', {
     getEndStatus: (state) => state.endStatus
   },
   actions: {
+    setCurrentIndex(payload) {
+      this.currentIndex = payload
+    },
+    setEndStatus(payload) {
+      this.endStatus = payload
+    },
     updateStep() {
       if (this.currentIndex != this.getQuestions.length - 1) {
         this.currentIndex += 1
       } else {
-        this.endStatus = "TRUE"
+        this.endStatus = true
       }
     },
-    resetQuiz() {
+    clearData() {
       this.currentIndex = 0
-      this.getEndStatus = false
+      this.endStatus = false
     }
   }
 })

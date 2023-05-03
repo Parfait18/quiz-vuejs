@@ -1,8 +1,8 @@
-import { defineStore } from "pinia"
+import { defineStore } from 'pinia'
 
-export const useQuestionStore =defineStore('quesiton',{
+export const useQuestionStore = defineStore('quesiton', {
   state: () => ({
-    answer: null,
+    answer: null
   }),
   persist: true,
   getters: {
@@ -10,10 +10,10 @@ export const useQuestionStore =defineStore('quesiton',{
   },
   actions: {
     updateAnswer(newValue) {
-        this.answer=newValue
+      this.answer = newValue
     },
-    clearAnswer() {
-        this.answer=null
+    clearData() {
+      this.answer = null
     }
   }
 })

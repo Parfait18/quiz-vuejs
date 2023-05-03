@@ -15,7 +15,7 @@ defineProps({
     <div
       :class="
         index == questionItem.correctAnswer
-          ? 'bg-green-100 text-green-500 p-2 pl-2 flex items-center'
+          ? 'bg-green-200 text-green-500 p-2 pl-2 flex items-center rounded-sm'
           : 'pl-2 flex items-center mb-4'
       "
       :key="index"

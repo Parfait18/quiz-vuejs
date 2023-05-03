@@ -8,13 +8,14 @@ defineProps({
 </script>
 
 <template>
-  <div class="greetings space-y-8">
-    <h2 class="text-blue-500 text-2xl font-weight-bold font-weight-bolder">{{ msg }}</h2>
-
+  <div class="greetings space-y-4 pt-8 text-center">
+    <h2 class="text-blue-800 text-2xl font-weight-bold font-weight-bolder mb-16">
+      {{ msg }}
+    </h2>
     <button
-      class="animate-pulse bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-md px-2 inline-flex rounded items-center"
+      class="animate-bounce bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-md px-2 inline-flex rounded items-center"
     >
-      <span> <router-link to="/quiz"> Cliquez pour commencer</router-link></span>
+      <span> <router-link to="/quiz"> Commencer</router-link></span>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -33,17 +34,3 @@ defineProps({
     </button>
   </div>
 </template>
-
-<style scoped>
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
-}
-</style>
