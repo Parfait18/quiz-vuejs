@@ -17,5 +17,8 @@ import HelloWorld from '@/components/HelloWorld.vue'
         <HelloWorld msg="Bienvenue sur notre platforme de quiz" />
       </div>
     </div>
+    <h2 class="text-blue-800 text-2xl font-weight-bold font-weight-bolder mb-16">
+      Designed by Parfait AHOUANTO
+    </h2>
   </div>
 </template>

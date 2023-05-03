@@ -10,7 +10,7 @@ defineProps({
 
 <template>
   <div class="greetings space-y-4 pt-8 text-center">
-    <h2 class="text-blue-800 text-2xl font-weight-bold font-weight-bolder mb-16">
+    <h2 class="text-blue-800 text-2xl p-2 font-weight-bold font-weight-bolder mb-16">
       {{ msg }}
     </h2>
     <button
