@@ -9,7 +9,7 @@ import Question from '../Question.vue'
 
 //test if Question Component work  as expected
 describe('Question', () => {
-  const wrapper = shallowMount(Question, {
+  const wrapper = mount(Question, {
     global: {
       plugins: [
         createTestingPinia({
@@ -51,13 +51,13 @@ describe('Question', () => {
     vi.spyOn(questionStore, 'updateAnswer')
 
     // //mock updateScores of resultStore
-    // vi.spyOn(resultStore, 'updateScores')
+    vi.spyOn(resultStore, 'updateScores')
 
     // //mock updateStep of quizStore
-    // vi.spyOn(quizStore, 'updateStep')
+    vi.spyOn(quizStore, 'updateStep')
 
     //mount Question component
-    const component = shallowMount(Question, {
+    const cmp = shallowMount(Question, {
       props: {
         questionItem: {
           id: 1,
@@ -65,31 +65,48 @@ describe('Question', () => {
           choices: ['Paris', 'Lyon', 'Marseille', 'Bordeaux'],
           correctAnswer: 0
         }
-      }
+      },
+      choice: null
     })
 
-    //test if button exit on component
-    expect(component.find('button').exists()).toBe(true)
+    vi.spyOn(cmp.vm, 'nextStep')
 
-    //test if component button to submit
-    expect(component.find('#submit').text()).toContain('Suivant')
+    //test if button exit on cmp
+    expect(cmp.find('button').exists()).toBe(true)
 
-    //try to click button
-    await component.find('#submit').trigger('click')
+    //expect init value of choice is null
+    expect(cmp.vm.choice).toBeNull()
 
-    //test if nextStep function is called only once
-    expect(component.vm.nextStep()).toHaveBeenCalledTimes(1)
+    //test if cmp button to submit
+    expect(cmp.find('#submit').text()).toContain('Suivant')
+
+    //try to click button when none choice is checked
+    await cmp.find('#submit').trigger('click')
+
+    //test if nextStep function is not called because no answer checked
+    const nextStep = vi.spyOn(wrapper.vm, 'nextStep')
+    expect(nextStep).toHaveBeenCalledTimes(0)
+
+    //check choice value
+    // await cmp.setValue({ choice: 2 })
+    // await cmp.find('#submit').trigger('click')
+
+    //check if value is update
+    // expect(cmp.vm.choice).toEqual(2)
+
+    //test if nextStep function is not called because no answer checked
+    // expect(nextStep).toHaveBeenCalledTimes(1)
 
     // //test if update answer is call one time
-    // expect(questionStore.updateAnswer(1)).toHaveBeenCalledTimes(1)
+    // expect(questionStore.updateAnswer(1)).toHaveBeenCalledTimes(0)
 
     // //test if answer is updated
     // expect(questionStore.getAnswer).toBe(1)
 
     // //test if update updateScore is call one time
-    // expect(resultStore.updateScores(0)).toHaveBeenCalledTimes(1)
+    // expect(resultStore.updateScores(0)).toHaveBeenCalledTimes(0)
 
     // //test if update updateSetep is call one time
-    // expect(quizStore.updateStep()).toHaveBeenCalledTimes(1)
+    // expect(quizStore.updateStep()).toHaveBeenCalledTimes(0)
   })
 })

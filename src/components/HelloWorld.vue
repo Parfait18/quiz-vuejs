@@ -13,7 +13,7 @@ defineProps({
       {{ msg }}
     </h2>
     <button
-      class="animate-bounce bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-md px-2 inline-flex rounded items-center"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-md px-2 inline-flex rounded items-center"
     >
       <span> <router-link to="/quiz"> Commencer</router-link></span>
 
