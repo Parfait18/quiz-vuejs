@@ -5,7 +5,7 @@ import { ref } from 'vue'
 const username = ref()
 const password = ref()
 const showPassword = ref(true)
-const error = ref('')
+const message = ref('')
 
 const submit = async () => {
   await axios
@@ -15,15 +15,13 @@ const submit = async () => {
     })
     .then((response) => {
       //   if (response.status == 400) {
-      //     error.value = 'Identifiants incorrects !'
+      //     message.value = 'Identifiants incorrects !'
       //   }
     })
     .catch((e) => {
-      console.log(e)
-      //   if (e.status == 400) {
-      //     error.value = 'Identifiants incorrects !'
-      //   }
-      //   console.log(e)
+      if (e.response.status == 400) {
+        message.value = 'Identifiants incorrects !'
+      }
     })
 }
 </script>
@@ -34,8 +32,8 @@ const submit = async () => {
       <div class="mx-auto bg-white rounded p-10 shadow-md">
         <h4 class="text-2xl text-gray-900 mb-8">Connexion</h4>
 
-        <span v-if="error" class="text-red-500 text-md"> {{ error }}</span>
-        <form class="space-y-2" enctype="multipart/form-data">
+        <span v-if="message" class="text-red-500 text-xl"> {{ message }}</span>
+        <form class="space-y-2 mt-4" enctype="multipart/form-data">
           <div>
             <label for="username" class="text-gray-600 text-xl"> Email ou nom d'utilisateur</label>
             <input
