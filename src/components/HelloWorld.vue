@@ -1,22 +1,20 @@
 <!-- component to display home text -->
 <script setup>
-import { useResultStore } from "@/stores/resultStore"
-import router from "@/router/index"
+import { useResultStore } from '@/stores/resultStore'
+import router from '@/router/index'
 
 const resultStore = useResultStore()
 
-	
 defineProps({
   msg: {
     type: String,
     required: true
   }
-} )
+})
 function goToQuiz() {
   resultStore.clearData()
   router.push('quiz')
 }
-
 </script>
 
 <template>
@@ -25,10 +23,10 @@ function goToQuiz() {
       {{ msg }}
     </h2>
     <button
-	    @click="goToQuiz"
+      @click="goToQuiz"
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 text-md px-2 inline-flex rounded items-center"
     >
-      <span>  Commencer</span>
+      <span> Commencer</span>
 
       <svg
         xmlns="http://www.w3.org/2000/svg"

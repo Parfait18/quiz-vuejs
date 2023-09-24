@@ -14,7 +14,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
         />
       </div>
       <div class="mx-auto">
-        <HelloWorld msg="Bienvenue sur notre platforme de quiz" />
+        <HelloWorld msg="Bienvenue sur notre platforme" />
       </div>
     </div>
     <h2 class="text-blue-800 text-2xl font-weight-bold font-weight-bolder mb-16">
